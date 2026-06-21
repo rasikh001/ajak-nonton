@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #ffd1dc, #ffe4e1);
+  color: #444;
+}
+
+.container {
+  margin-top: 100px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #ff8fab;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.input-date {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Musik -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="content">
+
+<h1>HALLOWW 👋</h1>
+<p>So, how’s everything been lately?<br>Has it been fun?</p>
+<button onclick="next1()">→</button>
+
+</div>
+
+<script>
+
+function next1() {
+  document.getElementById("content").innerHTML = `
+    <h1>aku lagi kepikiran sesuatu…</h1>
+    <p>gimana kalau kita nonton 🎬 <b>Toy Story</b> bareng?</p>
+    <p>i think it’s gonna be fun 😄</p>
+    <button onclick="yes()">yesss, I’m in!</button>
+    <button onclick="no()">hmmm, maybe not for now</button>
+  `;
+}
+
+function yes() {
+  document.getElementById("content").innerHTML = `
+    <h1>YESSS! 🎉</h1>
+    <p>okiii kita fix yapp!</p>
+    <p>nanti aku yang atur semuanya 😎</p>
+    <button onclick="datePage()">→</button>
+  `;
+}
+
+function datePage() {
+  document.getElementById("content").innerHTML = `
+    <h1>Pilih tanggal yuk 📅</h1>
+    <p>kamu maunya kapan?</p>
+    <input type="date" class="input-date" id="dateInput"><br><br>
+    <button onclick="finalYes()">→</button>
+  `;
+}
+
+function finalYes() {
+  let date = document.getElementById("dateInput").value;
+  document.getElementById("content").innerHTML = `
+    <h1>Noted! 😆</h1>
+    <p>kita nonton tanggal: <b>${date}</b></p>
+    <p>thanks a lot for your time, and for filling this out! </p>
+  `;
+}
+
+function no() {
+  document.getElementById("content").innerHTML = `
+    <h1>It's okay 😊</h1>
+    <p>No worries at all, just chill!</p>
+    <p>Thanks for your answer! </p>
+  `;
+}
+
+</script>
+
+</body>
+</html>
