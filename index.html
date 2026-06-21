@@ -2,53 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For You 💖</title>
+<title>For You 💗</title>
 
-<!-- FONT LUCU -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  text-align: center;
-  background: linear-gradient(135deg, #ffd1dc, #ffe4e1, #e0bbff);
-  background-size: 300% 300%;
-  animation: gradientMove 10s ease infinite;
-  color: #444;
+  background: linear-gradient(135deg, #ffd6e0, #ffe9f0);
   overflow: hidden;
 }
 
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-.container {
-  margin-top: 100px;
+.page {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   padding: 20px;
-  position: relative;
 }
 
-h1 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 2.7em;
+.active {
+  display: flex;
+  animation: fade 0.8s;
 }
 
-p {
-  font-size: 1.2em;
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+h1, h2, p {
+  color: #ff4d88;
 }
 
 button {
   padding: 12px 25px;
-  margin: 10px;
-  font-size: 1em;
   border: none;
   border-radius: 25px;
+  margin: 10px;
+  font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(to right, #ff8fab, #ffb3c6);
-  color: white;
   transition: 0.3s;
 }
 
@@ -56,102 +53,114 @@ button:hover {
   transform: scale(1.1);
 }
 
-.input-date {
-  padding: 10px;
-  font-size: 1em;
-  border-radius: 10px;
-  border: none;
+.next {
+  background: #ff99bb;
+  color: white;
 }
 
-/* STIKER */
+.yes {
+  background: #ff4d88;
+  color: white;
+}
+
+.no {
+  background: #ddd;
+}
+
+.link-btn {
+  background: white;
+  padding: 12px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ff4d88;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.link-btn:hover {
+  background: #ffe0eb;
+}
+
+/* dekorasi lucu */
 .sticker {
   position: absolute;
-  width: 100px;
-  animation: float 4s ease-in-out infinite;
+  width: 80px;
+  opacity: 0.8;
 }
 
-@keyframes float {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(-15px);}
-}
-
-.buzz { top: 20px; left: 20px; }
-.woody { bottom: 20px; right: 20px; }
-.alien { top: 20px; right: 20px; }
+.sticker1 { top: 10%; left: 5%; }
+.sticker2 { bottom: 10%; right: 5%; }
 </style>
-
 </head>
 
 <body>
 
 <!-- MUSIK -->
 <audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
 
-<!-- STIKER TOY STORY -->
-<img src="https://i.imgur.com/3ZQ3Z6F.png" class="sticker buzz">
-<img src="https://i.imgur.com/Jy7G6YF.png" class="sticker woody">
-<img src="https://i.imgur.com/Y6X8X3B.png" class="sticker alien">
+<!-- STIKER (toy story vibe) -->
+<img src="https://i.imgur.com/8Qf6F7R.png" class="sticker sticker1">
+<img src="https://i.imgur.com/1X4FZ6H.png" class="sticker sticker2">
 
-<div class="container" id="content">
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>HALLOWW 👋</h1>
+  <p>So, how’s everything been lately?<br>Has it been fun?</p>
+  <button class="next" onclick="nextPage(2)">→</button>
+</div>
 
-<h1>HALLOWW 👋</h1>
-<p>So, how’s everything been lately?<br>Has it been fun?</p>
-<button onclick="next1()">→</button>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h2>aku lagi kepikiran sesuatu…</h2>
+  <p>gimana kalau kita nonton 🎬 Toy Story bareng?</p>
+  <p>i think it’s gonna be fun 💫</p>
 
+  <button class="yes" onclick="nextPage(3)">yesss, I'm in!</button>
+  <button class="no" onclick="nextPage(6)">hmmm, maybe not for now</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h2>YESSS! 🎉</h2>
+  <p>okiii kita fix yapp!</p>
+  <p>nanti aku yang atur semuanya 😎</p>
+  <button class="next" onclick="nextPage(4)">→</button>
+</div>
+
+<!-- PAGE 4 (FORM) -->
+<div class="page" id="page4">
+  <h2>WOWOWOWOWOW 😆</h2>
+  <p>isii link di bawah inii yappp</p>
+
+  <a class="link-btn" href="https://forms.gle/q2WrYzakAcsbiD7bA" target="_blank">
+    isi di sini 💌
+  </a>
+
+  <p style="margin-top:20px;">kalauu udah di isii boleh di next lagii yaa</p>
+
+  <button class="next" onclick="nextPage(5)">→</button>
+</div>
+
+<!-- PAGE 5 (PENUTUP YES) -->
+<div class="page" id="page5">
+  <h2>thanks a lot 💖</h2>
+  <p>thanks for your time, and for filling this out!</p>
+</div>
+
+<!-- PAGE 6 (NO) -->
+<div class="page" id="page6">
+  <h2>No worries at all 😊</h2>
+  <p>just chill! Thanks for your answer!</p>
 </div>
 
 <script>
-
-function next1() {
-  document.getElementById("content").innerHTML = `
-    <h1>aku lagi kepikiran sesuatu…</h1>
-    <p>gimana kalau kita nonton 🎬 <b>Toy Story</b> bareng?</p>
-    <p>i think it’s gonna be fun 😄</p>
-    <button onclick="yes()">yesss, I’m in!</button>
-    <button onclick="no()">hmmm, maybe not for now</button>
-  `;
+function nextPage(pageNumber) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + pageNumber).classList.add('active');
 }
-
-function yes() {
-  document.getElementById("content").innerHTML = `
-    <h1>YESSS! 🎉</h1>
-    <p>okiii kita fix yapp!</p>
-    <p>nanti aku yang atur semuanya 😎</p>
-    <button onclick="datePage()">→</button>
-  `;
-}
-
-function datePage() {
-  document.getElementById("content").innerHTML = `
-    <h1>Pilih tanggal yuk 📅</h1>
-    <p>kamu maunya kapan?</p>
-    <input type="date" class="input-date" id="dateInput"><br><br>
-    <button onclick="finalYes()">→</button>
-  `;
-}
-
-function finalYes() {
-  let date = document.getElementById("dateInput").value;
-  document.getElementById("content").innerHTML = `
-    <h1>Noted! 😆</h1>
-    <p>kita nonton tanggal: <b>${date}</b></p>
-    <p>thanks a lot for your time, and for filling this out! 💖</p>
-  `;
-}
-
-function no() {
-  document.getElementById("content").innerHTML = `
-    <h1>It's okay 😊</h1>
-    <p>No worries at all, just chill!</p>
-    <p>Thanks for your answer! 💖</p>
-  `;
-}
-
 </script>
 
-</body>
-</html>
 </body>
 </html>
