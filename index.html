@@ -4,22 +4,36 @@
 <meta charset="UTF-8">
 <title>For You 💖</title>
 
+<!-- FONT LUCU -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  background: linear-gradient(to right, #ffd1dc, #ffe4e1);
+  background: linear-gradient(135deg, #ffd1dc, #ffe4e1, #e0bbff);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
   color: #444;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 .container {
   margin-top: 100px;
   padding: 20px;
+  position: relative;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.7em;
 }
 
 p {
@@ -33,7 +47,7 @@ button {
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  background-color: #ff8fab;
+  background: linear-gradient(to right, #ff8fab, #ffb3c6);
   color: white;
   transition: 0.3s;
 }
@@ -46,18 +60,39 @@ button:hover {
   padding: 10px;
   font-size: 1em;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: none;
 }
+
+/* STIKER */
+.sticker {
+  position: absolute;
+  width: 100px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-15px);}
+}
+
+.buzz { top: 20px; left: 20px; }
+.woody { bottom: 20px; right: 20px; }
+.alien { top: 20px; right: 20px; }
 </style>
 
 </head>
 
 <body>
 
-<!-- Musik -->
+<!-- MUSIK -->
 <audio autoplay loop>
   <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
 </audio>
+
+<!-- STIKER TOY STORY -->
+<img src="https://i.imgur.com/3ZQ3Z6F.png" class="sticker buzz">
+<img src="https://i.imgur.com/Jy7G6YF.png" class="sticker woody">
+<img src="https://i.imgur.com/Y6X8X3B.png" class="sticker alien">
 
 <div class="container" id="content">
 
@@ -102,7 +137,7 @@ function finalYes() {
   document.getElementById("content").innerHTML = `
     <h1>Noted! 😆</h1>
     <p>kita nonton tanggal: <b>${date}</b></p>
-    <p>thanks a lot for your time, and for filling this out! </p>
+    <p>thanks a lot for your time, and for filling this out! 💖</p>
   `;
 }
 
@@ -110,11 +145,13 @@ function no() {
   document.getElementById("content").innerHTML = `
     <h1>It's okay 😊</h1>
     <p>No worries at all, just chill!</p>
-    <p>Thanks for your answer! </p>
+    <p>Thanks for your answer! 💖</p>
   `;
 }
 
 </script>
 
+</body>
+</html>
 </body>
 </html>
