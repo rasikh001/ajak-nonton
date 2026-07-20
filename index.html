@@ -1,175 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>For You 💗</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<title>MPLS Thank You </title>
 
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffd6e0, #ffe9f0);
-  overflow: hidden;
-}
-
-/* SLIDE */
-.page {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  background: linear-gradient(135deg, #f5e6d3, #f8efe5, #f3dccf);
   text-align: center;
-  padding: 20px;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.6s ease;
+  overflow-x: hidden;
 }
 
-.page.active {
-  opacity: 1;
-  transform: translateX(0);
+.page {
+  display: none;
+  padding: 80px 20px;
 }
 
-h1, h2, p {
-  color: #ff4d88;
+.active {
+  display: block;
 }
 
-/* BUTTON */
-button {
-  padding: 12px 25px;
-  border: none;
+h1 {
+  font-size: 2.5em;
+}
+
+p {
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 15px 25px;
+  background: #d6a77a;
+  color: white;
   border-radius: 25px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* ANIMASI TOMBOL */
-button:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 15px #ff99bb;
-}
-
-button:active {
-  transform: scale(0.9);
-}
-
-.next {
-  background: #ff99bb;
-  color: white;
-  animation: bounce 2s infinite;
-}
-
-.yes {
-  background: #ff4d88;
-  color: white;
-  animation: pulse 2s infinite;
-}
-
-.no {
-  background: #ddd;
-}
-
-/* ANIMASI */
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255,77,136,0.5); }
-  70% { box-shadow: 0 0 0 15px rgba(255,77,136,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,77,136,0); }
-}
-
-/* LINK BUTTON */
-.link-btn {
-  background: white;
-  padding: 12px 20px;
-  border-radius: 20px;
   text-decoration: none;
-  color: #ff4d88;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 18px;
   transition: 0.3s;
 }
 
-.link-btn:hover {
+.btn:hover {
   transform: scale(1.1);
-  background: #ffe0eb;
+  background: #c48f5a;
+}
+
+.big {
+  font-size: 28px;
+}
+
+/* typing */
+.typing {
+  border-right: 3px solid;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end) forwards, blink .8s infinite;
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* gallery */
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.photos img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.photos img:hover {
+  transform: scale(1.1);
+}
+
+.qr {
+  width: 200px;
+  margin-top: 20px;
+}
+
+/* confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: red;
+  top: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-</audio>
-
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-  <h1>HALLOWW 👋</h1>
-  <p>So, how’s everything been lately?<br>Has it been fun?</p>
-  <button class="next" onclick="nextPage(2)">→</button>
+  <h1 class="typing">HALLOOO GUYSS 🎉</h1>
+  <h2>BUKAA YAA!! 😆</h2>
+  <button class="btn" onclick="nextPage(2)">→</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="page2">
-  <h2>aku lagi kepikiran sesuatu…</h2>
-  <p>gimana kalau kita nonton 🎬 Toy Story bareng?</p>
-  <p>i think it’s gonna be fun 💫</p>
-
-  <button class="yes" onclick="nextPage(3)">yesss, I'm in!</button>
-  <button class="no" onclick="nextPage(6)">hmmm, maybe not for now</button>
+  <h1>Pilih duluu 👀</h1>
+  <button class="btn big" onclick="choose('28')">'28</button>
+  <button class="btn big" onclick="choose('27')">'27</button>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3 (dynamic) -->
 <div class="page" id="page3">
-  <h2>YESSS! 🎉</h2>
-  <p>okiii kita fix yapp!</p>
-  <p>nanti aku yang atur semuanya 😎</p>
-  <button class="next" onclick="nextPage(4)">→</button>
+  <h1 id="title"></h1>
+  <p id="message"></p>
+  <button class="btn" onclick="nextPage(4)">→</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page" id="page4">
-  <h2>WOWOWOWOWOW 😆</h2>
-  <p>isii link di bawah inii yappp</p>
+  <h1>📸 Momen Kita</h1>
 
-  <a class="link-btn" href="https://forms.gle/q2WrYzakAcsbiD7bA" target="_blank">
-    isi di sini 
-  </a>
+  <div class="photos">
+    <!-- GANTI FOTO DI SINI -->
+    <img src="https://via.placeholder.com/200">
+    <img src="https://via.placeholder.com/200">
+    <img src="https://via.placeholder.com/200">
+  </div>
 
-  <p style="margin-top:20px;">kalauu udah di isii boleh di next lagii yaa</p>
+  <h2>🎶 Lagu Kenangan</h2>
+  <p>Scan yaa!</p>
 
-  <button class="next" onclick="nextPage(5)">→</button>
-</div>
-
-<!-- PAGE 5 -->
-<div class="page" id="page5">
-  <h2>thanks a lot </h2>
-  <p>thanks for your time, and for filling this out!</p>
-</div>
-
-<!-- PAGE 6 -->
-<div class="page" id="page6">
-  <h2>No worries at all 😊</h2>
-  <p>just chill! Thanks for your answer!</p>
+  <!-- GANTI QR DI SINI -->
+  <img src="https://via.placeholder.com/200" class="qr">
 </div>
 
 <script>
-function nextPage(pageNumber) {
-  document.querySelectorAll('.page').forEach(p => {
-    p.classList.remove('active');
-  });
-  document.getElementById('page' + pageNumber).classList.add('active');
+function nextPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + page).classList.add('active');
+  confetti();
+}
+
+function choose(type) {
+  let title = document.getElementById("title");
+  let message = document.getElementById("message");
+
+  if (type === '28') {
+    title.innerHTML = "💖 Untuk Kalian '28";
+    message.innerHTML = `
+    Terima kasih banyak sudah menjalankan MPLS ini dengan penuh tanggung jawab 🤍<br><br>
+    Kalian selalu tepat waktu saat jarkom, rapat, dan briefing setiap harinya ✨<br><br>
+    Tetap semangat ya! 🔥<br>
+    Jadikan ini sebagai gambaran MPLS berikutnya yang lebih keren!
+    `;
+  } else {
+    title.innerHTML = "😆 Untuk Kalian '27";
+    message.innerHTML = `
+    Gila sih kalian 🤣<br><br>
+    Terima kasih banyak udah ngeramein MPLS ini!<br><br>
+    Dari yang serius sampai yang chaos 😜<br><br>
+    Tapi tetap respect buat kalian 🔥
+    `;
+  }
+
+  nextPage(3);
+}
+
+// CONFETTI
+function confetti() {
+  for (let i = 0; i < 50; i++) {
+    let conf = document.createElement("div");
+    conf.classList.add("confetti");
+    conf.style.left = Math.random() * 100 + "vw";
+    conf.style.background = ["#d6a77a","#f5e6d3","#c48f5a","#fff"][Math.floor(Math.random()*4)];
+    conf.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(conf);
+
+    setTimeout(() => conf.remove(), 4000);
+  }
 }
 </script>
 
