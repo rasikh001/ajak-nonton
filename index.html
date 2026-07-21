@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>MPLS Thank You 💖</title>
 
-<!-- FONT UNIK -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -15,7 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* PAGE */
 .page {
   display: none;
   padding: 80px 20px;
@@ -24,13 +22,11 @@ body {
   animation: fade 0.8s ease;
 }
 
-.active {
-  display: block;
-}
+.active { display: block; }
 
 @keyframes fade {
-  from {opacity: 0; transform: scale(0.95);}
-  to {opacity: 1; transform: scale(1);}
+  from {opacity:0; transform:scale(0.95);}
+  to {opacity:1; transform:scale(1);}
 }
 
 h1 {
@@ -39,7 +35,7 @@ h1 {
 }
 
 p {
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
   line-height: 1.7;
 }
@@ -47,13 +43,14 @@ p {
 /* BUTTON */
 .btn {
   display: inline-block;
-  margin: 20px;
+  margin: 15px;
   padding: 15px 25px;
   background: linear-gradient(135deg, #e8a9a9, #d6a77a);
   color: white;
   border-radius: 30px;
-  text-decoration: none;
   font-size: 18px;
+  border: none;
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -77,9 +74,7 @@ p {
   transition: 0.3s;
 }
 
-.photos img:hover {
-  transform: scale(1.1);
-}
+.photos img:hover { transform: scale(1.1); }
 
 .qr {
   width: 200px;
@@ -97,9 +92,7 @@ p {
 }
 
 @keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
+  to { transform: translateY(100vh); }
 }
 
 /* HIASAN */
@@ -130,13 +123,10 @@ p {
   border-radius: 50% 40% 60% 40%;
 }
 
-/* posisi random */
 .s1 { top: 20px; left: 10px; }
 .s2 { top: 200px; right: 20px; }
 .s3 { bottom: 50px; left: 30px; }
 .s4 { bottom: 100px; right: 40px; }
-.s5 { top: 50%; left: 50%; }
-
 </style>
 </head>
 
@@ -178,7 +168,7 @@ p {
   <button class="btn" onclick="nextPage(4)">→</button>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 4 FOTO -->
 <div class="page" id="page4">
   <div class="shape blob s1"></div>
   <div class="shape circle s2"></div>
@@ -193,10 +183,30 @@ p {
     <img src="motion_photo_4051050408843357562.jpg">
   </div>
 
-  <h2>🎶 Lagu Kenangan</h2>
-  <p>Scan di bawah yaa 💖</p>
+  <h2>🎶 Lagu </h2>
+  <p>Scan di bawah yaaa</p>
 
   <img src="barcode (1).png" class="qr">
+
+  <br>
+  <button class="btn" onclick="nextPage(5)">Next →</button>
+</div>
+
+<!-- PAGE 5 MAKANAN -->
+<div class="page" id="page5">
+  <div class="shape circle s1"></div>
+  <div class="shape blob s2"></div>
+  <div class="shape triangle s3"></div>
+  <div class="shape circle s4"></div>
+
+  <h1>🍽️ Pilih Makanan Favorit!</h1>
+  <p>Aku mau apresiasi kalian  pilih yaa!</p>
+
+  <button class="btn" onclick="foodChoice('Spaghetti Aglio Olio 🍝')">🍝 Spaghetti Aglio Olio</button>
+  <button class="btn" onclick="foodChoice('Nasi Goreng 🍚')">🍚 Nasi Goreng</button>
+  <button class="btn" onclick="foodChoice('Curry Jepang 🍛')">🍛 Curry Jepang</button>
+
+  <h2 id="foodResult"></h2>
 </div>
 
 <script>
@@ -212,36 +222,33 @@ function choose(type) {
 
   if (type === '28') {
     title.innerHTML = "💖 Untuk Kalian '28";
-    message.innerHTML = `
-    Terima kasih banyak sudah menjalankan MPLS ini dengan penuh tanggung jawab 🤍<br><br>
-    Kalian selalu tepat waktu saat jarkom, rapat, dan briefing ✨<br><br>
-    Tetap semangat ya! 🔥
-    `;
+    message.innerHTML = "Adik-adik 🤍<br><br>Akang teteh sangat berterimakasih untuk kerja keras yang telah kalian maksimalkan di proker MPLS tahun ini 🙏✨<br><br>Tolong jadikan pembelajaran untuk beberapa kesalahan yang terjadi agar ke depannya tidak terulang lagi 📚<br><br>Anggap saja ini sebagai langkah awal menuju hal-hal besar berikutnya 🚀<br><br>Tingkatkan inisiatif dan terus maksimalkan usaha kalian 🔥<br><br>Mohon maaf apabila akang teteh belum bisa membina dengan baik 🙇‍♂️🙇‍♀️";
   } else {
     title.innerHTML = "😆 Untuk Kalian '27";
-    message.innerHTML = `
-    Terima kasih banyak udah ngeramein MPLS ini 🤣<br><br>
-    Dari yang serius sampai chaos 😜<br><br>
-    Tapi tetap keren banget 🔥
-    `;
+    message.innerHTML = "Halo man temannn 😆✨<br><br>Makasih banyak banget buat kalian semua yang udah bantu dari awal sampai akhir MPLS 🙏🔥<br><br>Kita bener-bener apresiasi banget semua effort kalian, baik di depan maupun di balik layar 💖<br><br>Kalau selama kegiatan ada kata atau sikap yang kurang enak, mohon dimaafkan yaa 🥺🙏<br><br>POKOKNYA KALIAN SEMUA KEREN BANGET EUYYYY 😎🔥";
   }
 
   nextPage(3);
 }
 
-/* CONFETTI BULAT WARNA */
+function foodChoice(food) {
+  document.getElementById("foodResult").innerHTML =
+    "Kalian pilih: <br><b>" + food + "</b> 😍🔥";
+  confetti();
+}
+
 function confetti() {
   let colors = ["#ff6b6b","#ffd93d","#6bcBef","#f3a683","#ff9ff3"];
 
   for (let i = 0; i < 60; i++) {
-    let conf = document.createElement("div");
-    conf.classList.add("confetti");
-    conf.style.left = Math.random() * 100 + "vw";
-    conf.style.background = colors[Math.floor(Math.random()*colors.length)];
-    conf.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    document.body.appendChild(conf);
+    let c = document.createElement("div");
+    c.classList.add("confetti");
+    c.style.left = Math.random()*100 + "vw";
+    c.style.background = colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration = (Math.random()*3+2)+"s";
+    document.body.appendChild(c);
 
-    setTimeout(() => conf.remove(), 4000);
+    setTimeout(() => c.remove(), 4000);
   }
 }
 </script>
