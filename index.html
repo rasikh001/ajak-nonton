@@ -2,19 +2,46 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>MPLS Thank You </title>
+<title>MPLS Thank You 💖</title>
+
+<!-- FONT UNIK -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f5e6d3, #f8efe5, #f3dccf);
-  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #f8e1e7, #f5e6d3, #f9d5d3);
   overflow-x: hidden;
 }
 
+/* dekor background */
+.decor span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.decor span:nth-child(1){
+  width: 100px; height:100px;
+  background:#ffb3b3;
+  top:10%; left:10%;
+}
+.decor span:nth-child(2){
+  width: 150px; height:150px;
+  background:#ffe0cc;
+  bottom:10%; right:10%;
+}
+.decor span:nth-child(3){
+  width: 80px; height:80px;
+  background:#ffd6e0;
+  top:50%; left:80%;
+}
+
+/* halaman */
 .page {
   display: none;
+  text-align: center;
   padding: 80px 20px;
 }
 
@@ -22,44 +49,53 @@ body {
   display: block;
 }
 
+/* heading */
 h1 {
+  font-family: 'Pacifico', cursive;
   font-size: 2.5em;
+  color: #b85c5c;
 }
 
 p {
   max-width: 600px;
   margin: auto;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: #444;
 }
 
+/* tombol */
 .btn {
-  display: inline-block;
   margin: 20px;
-  padding: 15px 25px;
-  background: #d6a77a;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg,#ff8fa3,#ffc3a0);
   color: white;
-  border-radius: 25px;
-  text-decoration: none;
   font-size: 18px;
+  cursor: pointer;
   transition: 0.3s;
 }
 
 .btn:hover {
   transform: scale(1.1);
-  background: #c48f5a;
+}
+
+/* animasi klik */
+.btn:active {
+  transform: scale(0.9);
 }
 
 .big {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 /* typing */
 .typing {
-  border-right: 3px solid;
-  width: 0;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s steps(30, end) forwards, blink .8s infinite;
+  border-right: 3px solid;
+  width: 0;
+  animation: typing 3s steps(30,end) forwards, blink .7s infinite;
 }
 
 @keyframes typing {
@@ -70,19 +106,29 @@ p {
   50% { border-color: transparent; }
 }
 
+/* fade anim */
+.fade {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
 /* gallery */
 .photos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .photos img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 20px;
   transition: 0.3s;
 }
 
@@ -90,17 +136,18 @@ p {
   transform: scale(1.1);
 }
 
+/* QR */
 .qr {
-  width: 200px;
+  width: 180px;
   margin-top: 20px;
 }
 
-/* confetti */
+/* confetti bulat */
 .confetti {
   position: fixed;
   width: 10px;
   height: 10px;
-  background: red;
+  border-radius: 50%;
   top: 0;
   animation: fall linear infinite;
 }
@@ -115,33 +162,41 @@ p {
 
 <body>
 
+<div class="decor">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 <!-- PAGE 1 -->
-<div class="page active" id="page1">
+<div class="page active fade" id="page1">
   <h1 class="typing">HALLOOO GUYSS 🎉</h1>
   <h2>BUKAA YAA!! 😆</h2>
   <button class="btn" onclick="nextPage(2)">→</button>
 </div>
 
 <!-- PAGE 2 -->
-<div class="page" id="page2">
+<div class="page fade" id="page2">
   <h1>Pilih duluu 👀</h1>
   <button class="btn big" onclick="choose('28')">'28</button>
   <button class="btn big" onclick="choose('27')">'27</button>
 </div>
 
-<!-- PAGE 3 (dynamic) -->
-<div class="page" id="page3">
+<!-- PAGE 3 -->
+<div class="page fade" id="page3">
   <h1 id="title"></h1>
   <p id="message"></p>
   <button class="btn" onclick="nextPage(4)">→</button>
 </div>
 
 <!-- PAGE 4 -->
-<div class="page" id="page4">
+<div class="page fade" id="page4">
   <h1>📸 Momen Kita</h1>
 
   <div class="photos">
-    <!-- GANTI FOTO DI SINI -->
+    <!-- GANTI FOTO -->
+    <img src="https://via.placeholder.com/200">
+    <img src="https://via.placeholder.com/200">
     <img src="https://via.placeholder.com/200">
     <img src="https://via.placeholder.com/200">
     <img src="https://via.placeholder.com/200">
@@ -150,14 +205,14 @@ p {
   <h2>🎶 Lagu Kenangan</h2>
   <p>Scan yaa!</p>
 
-  <!-- GANTI QR DI SINI -->
+  <!-- QR DIPISAH -->
   <img src="https://via.placeholder.com/200" class="qr">
 </div>
 
 <script>
 function nextPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page' + page).classList.add('active');
+  document.getElementById('page'+page).classList.add('active');
   confetti();
 }
 
@@ -165,38 +220,40 @@ function choose(type) {
   let title = document.getElementById("title");
   let message = document.getElementById("message");
 
-  if (type === '28') {
+  if(type === '28'){
     title.innerHTML = "💖 Untuk Kalian '28";
     message.innerHTML = `
-    Terima kasih banyak sudah menjalankan MPLS ini dengan penuh tanggung jawab 🤍<br><br>
-    Kalian selalu tepat waktu saat jarkom, rapat, dan briefing setiap harinya ✨<br><br>
-    Tetap semangat ya! 🔥<br>
-    Jadikan ini sebagai gambaran MPLS berikutnya yang lebih keren!
+    Terima kasih sudah menjalankan MPLS dengan penuh tanggung jawab 🤍<br><br>
+    Kalian selalu tepat waktu saat jarkom, rapat, dan briefing ✨<br><br>
+    Tetap semangat ya 🔥<br>
+    Jadikan ini gambaran untuk MPLS berikutnya!
     `;
   } else {
     title.innerHTML = "😆 Untuk Kalian '27";
     message.innerHTML = `
     Gila sih kalian 🤣<br><br>
-    Terima kasih banyak udah ngeramein MPLS ini!<br><br>
-    Dari yang serius sampai yang chaos 😜<br><br>
-    Tapi tetap respect buat kalian 🔥
+    Terima kasih udah ngeramein MPLS ini!<br><br>
+    Dari serius sampai chaos 😜<br><br>
+    Tapi tetap respect 🔥
     `;
   }
 
   nextPage(3);
 }
 
-// CONFETTI
-function confetti() {
-  for (let i = 0; i < 50; i++) {
+/* CONFETTI BULAT WARNA-WARNI */
+function confetti(){
+  let colors = ["#ff6b6b","#ffd93d","#6bcBef","#ff9a9e","#fbc2eb","#a0e7e5"];
+
+  for(let i=0;i<60;i++){
     let conf = document.createElement("div");
     conf.classList.add("confetti");
-    conf.style.left = Math.random() * 100 + "vw";
-    conf.style.background = ["#d6a77a","#f5e6d3","#c48f5a","#fff"][Math.floor(Math.random()*4)];
-    conf.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    document.body.appendChild(conf);
+    conf.style.left = Math.random()*100+"vw";
+    conf.style.background = colors[Math.floor(Math.random()*colors.length)];
+    conf.style.animationDuration = (Math.random()*3+2)+"s";
 
-    setTimeout(() => conf.remove(), 4000);
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),4000);
   }
 }
 </script>
