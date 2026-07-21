@@ -11,14 +11,12 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   background: linear-gradient(135deg, #fbeaea, #f6d6d6, #f3e1d5, #fff4ec);
-  overflow-x: hidden;
 }
 
 .page {
   display: none;
   padding: 80px 20px;
   text-align: center;
-  position: relative;
   animation: fade 0.8s ease;
 }
 
@@ -31,7 +29,6 @@ body {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8em;
 }
 
 p {
@@ -40,8 +37,12 @@ p {
   line-height: 1.7;
 }
 
+#message p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
 .btn {
-  display: inline-block;
   margin: 15px;
   padding: 15px 25px;
   background: linear-gradient(135deg, #e8a9a9, #d6a77a);
@@ -50,11 +51,10 @@ p {
   font-size: 18px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.1) rotate(-2deg);
+  transform: scale(1.1);
 }
 
 .photos {
@@ -69,14 +69,11 @@ p {
   height: 220px;
   object-fit: cover;
   border-radius: 20px;
-  transition: 0.3s;
 }
-
-.photos img:hover { transform: scale(1.1); }
 
 .qr {
   width: 200px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .confetti {
@@ -91,65 +88,29 @@ p {
 @keyframes fall {
   to { transform: translateY(100vh); }
 }
-
-.shape {
-  position: absolute;
-  opacity: 0.2;
-}
-
-.circle {
-  width: 80px;
-  height: 80px;
-  background: #e8a9a9;
-  border-radius: 50%;
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-bottom: 70px solid #d6a77a;
-}
-
-.blob {
-  width: 120px;
-  height: 80px;
-  background: #f3cfcf;
-  border-radius: 50% 40% 60% 40%;
-}
-
-.s1 { top: 20px; left: 10px; }
-.s2 { top: 200px; right: 20px; }
-.s3 { bottom: 50px; left: 30px; }
-.s4 { bottom: 100px; right: 40px; }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
 <div class="page active" id="page1">
   <h1>HALLOOO GUYSS 🎉</h1>
   <h2>BUKAA YAA!! 😆</h2>
   <button class="btn" onclick="nextPage(2)">→</button>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page" id="page2">
   <h1>Pilih duluu 👀</h1>
   <button class="btn" onclick="choose('28')">'28</button>
   <button class="btn" onclick="choose('27')">'27</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page" id="page3">
   <h1 id="title"></h1>
-  <p id="message"></p>
+  <div id="message"></div>
   <button class="btn" onclick="nextPage(4)">→</button>
 </div>
 
-<!-- PAGE 4 FOTO -->
 <div class="page" id="page4">
   <h1>📸 Momen Kita</h1>
 
@@ -168,7 +129,6 @@ p {
   <button class="btn" onclick="nextPage(5)">Next →</button>
 </div>
 
-<!-- PAGE 5 MAKANAN -->
 <div class="page" id="page5">
   <h1>🍽️ Pilih Makanan Favorit!</h1>
 
@@ -177,10 +137,9 @@ p {
   <button class="btn" onclick="foodChoice()">🍛 Curry Jepang</button>
 </div>
 
-<!-- PAGE 6 FINAL -->
 <div class="page" id="page6">
-  <h1>THANKK YOUU GUYYSS 💖🎉</h1>
-  <h2>DI TUNGGUU !! 😆🔥</h2>
+  <h1>THANKK YOUU YAA 💖🎉</h1>
+  <h2>DI TUNGGU !! 😆🔥</h2>
 </div>
 
 <script>
@@ -196,20 +155,42 @@ function choose(type) {
 
   if (type === '28') {
     title.innerHTML = "💖 Untuk '28";
-    message.innerHTML = "adik adik, akang teteh sangat berterimakasih untuk kerja keras yang telah kalian maksimalkan di proker MPLS tahun ini 🙏✨. tolong jadikan pembelajaran untuk beberapa kesalahan yang terjadi di proker MPLS agar dikedepannya tidak terjadi kesalahan yang sama 💡. anggap saja proker kali ini sebagai jalan awal menuju banyak hal lain dikedepannya untuk lebih baik 🚀, tingkatkan lagi inisiatif nya dan maksimalkan selalu kerja keras kalian 💪🔥, mohon maaf apabila akang teteh kurang baik dalam membina kalian 🙏🤍";
+
+    message.innerHTML = `
+    <p>adik adik, akang teteh sangat berterimakasih untuk kerja keras yang telah kalian maksimalkan di proker MPLS tahun ini 🙏✨</p>
+
+    <p>tolong jadikan pembelajaran untuk beberapa kesalahan yang terjadi di proker MPLS agar dikedepannya tidak terjadi kesalahan yang sama 💡</p>
+
+    <p>anggap saja proker kali ini sebagai jalan awal menuju banyak hal lain dikedepannya untuk lebih baik 🚀</p>
+
+    <p>tingkatkan lagi inisiatif nya dan maksimalkan selalu kerja keras kalian 💪🔥</p>
+
+    <p>mohon maaf apabila akang teteh kurang baik dalam membina kalian 🙏🤍</p>
+    `;
+
   } else {
     title.innerHTML = "😆 Untuk '27";
-    message.innerHTML = "Halo man temann 👋😆,<br><br>Sebelumnya kita mau ngucapin makasih yang banyak banget buat semua panit yang udah bantu dari awal sampai akhir kegiatan mpls di hari ini 🙏🔥. Kita bener bener ngapresiasi kehadiran dan kinerja kalian di lapangan, pun yang di belakang layar 💖✨.<br><br>Sekiranya ada salah kata atau ada sikap kita yang ga enak ke kalian selama kegiatan ini, mohon dimaafkan yaa man temannn.. 🙏🤍<br><br>POKOKNYA KALIAN SEMUA KEREN BANGET EUYYYY! 🎉🔥😆";
+
+    message.innerHTML = `
+    <p>Halo man temann 👋😆,</p>
+
+    <p>Sebelumnya kita mau ngucapin makasih yang banyak banget buat semua panit yang udah bantu dari awal sampai akhir kegiatan mpls di hari ini 🙏🔥</p>
+
+    <p>Kita bener bener ngapresiasi kehadiran dan kinerja kalian di lapangan, pun yang di belakang layar 💖✨</p>
+
+    <p>Sekiranya ada salah kata atau ada sikap kita yang ga enak ke kalian selama kegiatan ini, mohon dimaafkan yaa man temannn.. 🙏🤍</p>
+
+    <p><b>POKOKNYA KALIAN SEMUA KEREN BANGET EUYYYY! 🎉🔥😆</b></p>
+    `;
   }
 
   nextPage(3);
 }
 
 function foodChoice() {
-  nextPage(6);
+  nextPage(6); // AUTO KE HALAMAN TERAKHIR
 }
 
-/* CONFETTI */
 function confetti() {
   let colors = ["#ff6b6b","#ffd93d","#6bcBef","#f3a683","#ff9ff3"];
 
